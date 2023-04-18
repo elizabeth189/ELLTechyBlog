@@ -1,0 +1,65 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>ELL Techy blog</title>
+    {{! using bulma, linked }}
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'
+    />
+    <link rel='stylesheet' href='../../public/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <div class='wrapper'>
+      <header class='has-background-success'>
+        <h1 class='has-text-black px-3 py-3 has-text-weight-bold is-size-3'>ELL
+          Techy Blog</h1>
+        <nav class='navbar mt-2 has-background-blue-lighter is-right'>
+          <div class='navbar-brand'>
+            <a
+              href='../homepage.handlebars'
+              class='mt-3 mx-4 is-hoverable navbar-item pt-1 has-text-weight-medium is-size-5'
+            >home</a>
+            <a
+              href='../dashboard.handlebars'
+              class='mt-3 mx-4 has-text-weight-medium navbar-item pt-1 is-size-5'
+            >dashboard</a>
+            {{#if loggedIn}}
+              <button
+                id='logout'
+                class='button mt-3 mx-4 is-info is-hoverable has-text-weight-medium navbar-item pt-1 is-size-5'
+              >logout</button>
+            {{else}}
+              <button
+                class='button mt-3 mx-4 is-info is-hoverable has-text-weight-medium navbar-item pt-1 is-size-5'
+              ><a href='../../public/javascript/login.js' class='has-text-black'>login</a></button>
+            {{/if}}
+          </div>
+        </nav>
+      </header>
+      <main class='has-background-white-bis'>
+        {{{body}}}
+      </main>
+      <footer class='footer'>
+        <div class='content has-text-centered'>
+          <span class='has-text-weight-bold'>ELL Techy Blog</span>
+          by
+          <a href='https://github.com/Elizabeth189'>Elizabeth</a>
+          | made with
+          <a href='https://bulma.io/'>bulma</a>
+          |
+          <a href='mailto:elizabethlopez0108@gmail.com'>Contact Me</a>
+        </div>
+      </footer>
+    </div>
+    {{#if loggedIn}}
+      <script src='../../public/javascript/logout.js'></script>
+    {{/if}}
+  </body>
+
+</html>
+
+{{!-- refer to https://bulma.io/documentation/helpers/color-helpers/ for help with styling bulma --}}
